@@ -1,18 +1,20 @@
 (function() {
-    var app = angular.module("gitPro", []);
+    let app = angular.module("gitPro", []);
 
-    var MainController = function($scope, $http) {
+    let MainController = function($scope, $http) {
 
-        var onUserComplete = function(res) {
+        let onUserComplete = function(res) {
             $scope.user = res.data;
         };
 
-        var onError = function(err) {
+        let onError = function(err) {
             $scope.error = "Could not fetch the user";
         };
 
-        $http.get("http://api.github.com/users/iamSK77")
+        $scope.search = function(username) {
+            $http.get("http://api.github.com/users/" + username)
             .then(onUserComplete, onError);
+        };
 
         $scope.message = "Hello, Angular!";
 
