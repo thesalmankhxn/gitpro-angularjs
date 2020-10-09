@@ -5,7 +5,13 @@
 
         let onUserComplete = function(res) {
             $scope.user = res.data;
+            $http.get($scope.user.repos_url)
+                .then(onRepos, onError)
         };
+
+        let onRepos = function(res) {
+            $scope.repos = res.data;
+        }
 
         let onError = function(err) {
             $scope.error = "Could not fetch the user";
@@ -17,6 +23,7 @@
         };
 
         $scope.message = "Hello, Angular!";
+        $scope.repoOrder = "-stargazers_count";
 
     };
 

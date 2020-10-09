@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="gitPro">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,6 +9,7 @@
     <script src="app/app.js"></script>
     <title>GitPro</title>
 </head>
+
 <body>
 
     <div ng-controller="MainController">
@@ -17,22 +19,53 @@
 
         <div>
 
-            <form name="searchUser">
-                <input type="search" placeholder="Username to find" ng-model="username" />
-                <input type="submit" value="Search" ng-click="search(username)">
+            <form name="searchUser" ng-click="search(username)">
+                <input type="search" required placeholder="Username to find" ng-model="username" />
+                <input type="submit" value="Search">
             </form>
 
-            <div>
-                Name: {{user.name}}
+            <div ng-show="user">
+
+                <div>
+                    Name: {{user.name}}
+                </div>
+                <div>
+                    Location: {{user.location}}
+                </div>
+                <div>
+                    <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+                </div>
+    
+                <div>
+                    Order: 
+                    <select ng-model="repoOrder">
+                        <option value="+name">Name</option>
+                        <option value="-stargazers_count">Stars</option>
+                        <option value="-language">Languages</option>
+                    </select>
+                </div>
+
             </div>
-            <div>
-                Location: {{user.location}}
-            </div>
-            <div>
-                <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
-            </div>
+
+            <table ng-hide="!user">
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>Stars</th>
+                        <th>Languages</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="repo in repos | orderBy: repoOrder">
+                        <td>{{repo.name}}</td>
+                        <td>{{repo.stargazers_count | number}}</td>
+                        <td>{{repo.language}}</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
 
     </div>
 </body>
+
 </html>
