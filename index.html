@@ -19,50 +19,13 @@
 
         <div>
 
-            <form name="searchUser" ng-click="search(username)">
+            <form name="searchUser" ng-submit="search(username)">
                 <input type="search" required placeholder="Username to find" ng-model="username" />
                 <input type="submit" value="Search">
             </form>
 
-            <div ng-show="user">
+            <div ng-include="'userDetails.html'" ng-show="user"></div>
 
-                <div>
-                    Name: {{user.name}}
-                </div>
-                <div>
-                    Location: {{user.location}}
-                </div>
-                <div>
-                    <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
-                </div>
-    
-                <div>
-                    Order: 
-                    <select ng-model="repoOrder">
-                        <option value="+name">Name</option>
-                        <option value="-stargazers_count">Stars</option>
-                        <option value="-language">Languages</option>
-                    </select>
-                </div>
-
-            </div>
-
-            <table ng-hide="!user">
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>Stars</th>
-                        <th>Languages</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr ng-repeat="repo in repos | orderBy: repoOrder">
-                        <td>{{repo.name}}</td>
-                        <td>{{repo.stargazers_count | number}}</td>
-                        <td>{{repo.language}}</td>
-                    </tr>
-                </tbody>
-            </table>
         </div>
 
     </div>
