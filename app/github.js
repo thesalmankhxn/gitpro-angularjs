@@ -7,11 +7,20 @@
                             return res.data;
                         });
         };
+
+        let getRepos = function(user) {
+            return $http.get(user.repos_url)
+                        .then(function(res) {
+                            return res.data;
+                        });
+        };        
         
         return {
-
+            getUser: getUser,
+            getRepos: getRepos
         };
     };
 
     let module = angular.module("gitPro");
+    module.factory("github", github);
 }());
