@@ -1,13 +1,23 @@
-<div>
+<div id="user" ng-style="{
+    'padding': '10px',
+    'display': 'grid',
+    'justify-items': 'center'
+}">
 
-    <div>
+    <div ng-style="{
+        'margin-bottom': '10px';
+    }">
         Name: {{user.name}}
     </div>
-    <div>
+    <div ng-style="{
+        'margin-bottom': '10px'
+    }">
         Location: {{user.location}}
     </div>
-    <div id="userDetails">
-        <img ng-src="{{user.avatar_url}}" title="{{user.name}}">
+    <div id="userDetails" ng-style="{
+        'margin-bottom': '10px'
+    }">
+        <img class="image" ng-src="{{user.avatar_url}}" title="{{user.name}}" ng-style="{'width': '150px'}">
     </div>
 
     <div>
@@ -18,8 +28,6 @@
             <option value="-language">Languages</option>
         </select>
     </div>
-
-</div>
 
 <table >
     <thead>
@@ -37,3 +45,5 @@
         </tr>
     </tbody>
 </table>
+
+</div>

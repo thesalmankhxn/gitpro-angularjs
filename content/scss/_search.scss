@@ -1,0 +1,37 @@
+.form-container {
+    margin: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.text-input {
+    height: 40px;
+    max-width: 300px;
+    outline: none;
+    padding: 10px;
+    font-weight: 400;
+    font-size: 1rem;
+    border-radius: 50px 0 0 50px;
+    border: 1px solid #c4c4c4;
+}
+
+.btn-submit {
+    height: 40px;
+    outline: none;
+    border: 1px solid #c4c4c4;
+    border-radius: 0 50px 50px 0;
+    padding: 10px;
+    font-weight: 700;
+    font-size: 1rem;
+    background-color: #6a8a8f;
+    color: #e2e2e2;
+
+    &:hover {
+        background-color: #375a5f;
+    }
+}
+
+.heading {
+    padding: 1rem;
+}

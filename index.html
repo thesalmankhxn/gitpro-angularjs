@@ -8,30 +8,54 @@
     <script src="app/lib/angular.min.js"></script>
     <script src="app/lib/angular-route.min.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/MainController.js"></script>
     <script src="app/github.js"></script>
     <title>GitPro</title>
 </head>
 
 <body>
+    
+</body>
 
+<body>
+    <!-- header -->
+    <header>
+        <nav>
+            <h1>
+                <i class="fab fa-github"></i>
+                GitPro
+            </h1>
+            <ul>
+                <li>
+                    <a href="#">Search</a>
+                </li>
+                <li>
+                    <a href="#">About</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    
     <div ng-controller="MainController">
-        <h1>{{message}}</h1>
+        <h1 class="text-center heading">{{message}}</h1>
 
-        <div>{{error}}</div>
+        <div class="text-center">{{error}}</div>
 
-        <div>
+        <div class="form-container">
 
             <form name="searchUser" ng-submit="search(username)">
-                <input type="search" required placeholder="Username to find" ng-model="username" />
-                <input type="submit" value="Search">
+                <input type="search" class="text-input" required placeholder="Username to find" ng-model="username" />
+                <input type="submit" class="btn-submit" value="Search">
             </form>
 
-            <div ng-include="'userDetails.html'" ng-show="user"></div>
-
         </div>
-
+        <div ng-include="'userDetails.html'" ng-show="user"></div>
     </div>
+
+    <!-- footer -->
+    <footer>
+
+    </footer>
 </body>
 
 </html>
