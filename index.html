@@ -8,13 +8,8 @@
     <script src="app/lib/angular.min.js"></script>
     <script src="app/lib/angular-route.min.js"></script>
     <script src="app/app.js"></script>
-    <script src="app/github.js"></script>
     <title>GitPro</title>
 </head>
-
-<body>
-    
-</body>
 
 <body>
     <!-- header -->
@@ -26,36 +21,31 @@
             </h1>
             <ul>
                 <li>
-                    <a href="#">Search</a>
+                    <a href="#/search">Search</a>
                 </li>
                 <li>
-                    <a href="#">About</a>
+                    <a href="#/about">About</a>
                 </li>
             </ul>
         </nav>
     </header>
 
-    
     <div ng-controller="MainController">
         <h1 class="text-center heading">{{message}}</h1>
-
+    
         <div class="text-center">{{error}}</div>
-
+    
         <div class="form-container">
-
+    
             <form name="searchUser" ng-submit="search(username)">
                 <input type="search" class="text-input" required placeholder="Username to find" ng-model="username" />
                 <input type="submit" class="btn-submit" value="Search">
             </form>
-
+    
         </div>
         <div ng-include="'userDetails.html'" ng-show="user"></div>
     </div>
 
-    <!-- footer -->
-    <footer>
-
-    </footer>
 </body>
 
 </html>
